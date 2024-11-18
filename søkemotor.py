@@ -19,6 +19,7 @@ def print_menu():
     print("1. Search line")
     print("2. Search word")
     print("3. Change file")
+    print("4. Create new txt file")
 
     choice = input("choose number from menu: ") #Choose option from list above by listening to 1,2 or 3.
     if choice == "1": #If choice 1, does call function underneath
@@ -27,6 +28,13 @@ def print_menu():
         search_word() #Calls search word function
     elif choice == "3": #If choice 3, does call function underneath
         change_file() #Calls change filefunction
+    elif choice == "4":
+        create_name = input("Write name for your file. (Do NOT write '.txt' at the end): ")
+        f = open(str(create_name) + ".txt", "w") #Creates a new name from the input. adds '.txt' at the end. "w" cant make a new one if already a file with that name exists.
+        print("Succesfully created file. Changed current file to the new file")
+        current_file = str(create_name) + ".txt" #Sets current file to the one created
+        input("Press any key to exit")
+        print_menu()
     else:
         print_menu() #If not any of options above, prints menu again
 
