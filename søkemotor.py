@@ -1,56 +1,56 @@
-import os
-current_file = "tekstfil1.txt"
+import os #Needed to use clear terminal function
+current_file = "tekstfil1.txt" #Sets current file to read
 
 def print_menu():
-    os.system('cls')
-    print("current selected file = " + current_file)
+    os.system('cls') #Clears the terminal
+    print("current selected file = " + current_file) #Prints which file is selected
     print("1. Search line")
     print("2. Search word")
     print("3. Change file")
-    choice = input("choose number from menu: ")
-    if choice == "1":
-        search_line()
-    elif choice == "2":
-        search_word()
-    elif choice == "3":
-        change_file()
+    choice = input("choose number from menu: ") #Choose option from list above by listening to 1,2 or 3.
+    if choice == "1": #If choice 1, does call function underneath
+        search_line() #Calls search line function
+    elif choice == "2": #If choice 2, does call function underneath
+        search_word() #Calls search word function
+    elif choice == "3": #If choice 3, does call function underneath
+        change_file() #Calls change filefunction
     else:
-        print_menu()
+        print_menu() #If not any of options above, prints menu again
 
 
 #Change current file
 def change_file():
-    os.system('cls')
+    os.system('cls') #Clears the terminal
     global current_file
 
     print("1. Change to tekstfil1.txt")
     print("2. Change to tekstfil2.txt")
     print("3. Change to tekstfil3.txt")
-    choice = input("Choose which file to change to: ")
-    if choice == "1":
-        current_file = "tekstfil1.txt"
+    choice = input("Choose which file to change to: ") #Input is your choice
+    if choice == "1": #If your choice is 1 from list, does code underneath
+        current_file = "tekstfil1.txt" #Changes current_file to be the string written
         print_menu()
-    elif choice == "2":
-        current_file = "tekstfil2.txt"
+    elif choice == "2": #If your choice is 2 from list, does code underneath
+        current_file = "tekstfil2.txt" #Changes current_file to be the string written
         print_menu()
-    elif choice == "3":
-        current_file = "tekstfil3.txt"
+    elif choice == "3": #If your choice is 3 from list, does code underneath
+        current_file = "tekstfil3.txt" #Changes current_file to be the string written
         print_menu()
     else:
-        change_file()
+        change_file() #If none of options above, calls change_file function again
 
 
 #Search for line in file
 def search_line():
-    os.system('cls')
+    os.system('cls') #Clears the terminal
     
     #Tekst file 1
-    f = open(current_file, "r")
-    search = input("search line in file: ")
+    f = open(current_file, "r") #Open the current choosen file from the variable
+    search = input("search line in file: ") #Input is your search
 
     for line in f:
-        if search in line:
-            print(line)
+        if search in line: #Checks for search in file lines. if found does code underneath
+            print(line) #Prints the line with the word
     
     input("Press any key to exit: ")
     print_menu()
@@ -58,11 +58,11 @@ def search_line():
 
 #Search for word in file
 def search_word():
-    os.system('cls')
+    os.system('cls') #Clears the terminal
     
     #Tekst file 1
-    f = open(current_file, "r")
-    search = input("Search word in file: ")
+    f = open(current_file, "r") #Open the current choosen file from the variable
+    search = input("Search word in file: ") #Input is your search
     word_list = [] #Empty list of found searched words
 
     for line in f:
