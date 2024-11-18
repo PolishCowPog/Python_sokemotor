@@ -18,8 +18,8 @@ def print_menu():
 #Search for line in file
 def search_line():
     os.system('cls')
+    
     #Tekst file 1
-
     f = open("tekstfil1.txt", "r")
     search = input("search line in file: ")
 
@@ -34,8 +34,8 @@ def search_line():
 #Search for word in file
 def search_word():
     os.system('cls')
+    
     #Tekst file 1
-
     f = open("tekstfil1.txt", "r")
     search = input("Search word in file: ")
     word_list = [] #Empty list of found searched words
