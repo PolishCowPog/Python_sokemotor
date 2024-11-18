@@ -2,11 +2,24 @@ import os #Needed to use clear terminal function
 current_file = "tekstfil1.txt" #Sets current file to read
 
 def print_menu():
+    global current_file
     os.system('cls') #Clears the terminal
+
+    print("")
+    current_directory = os.getcwd()
+    file_path = os.path.join(current_directory, current_file)
+    if os.path.isfile(file_path):
+        print("File found")
+    else:
+        print("File not found, reverted back to tekstfil1.txt")
+        current_file = "tekstfil1.txt"
+    print("")
+
     print("current selected file = " + current_file) #Prints which file is selected
     print("1. Search line")
     print("2. Search word")
     print("3. Change file")
+
     choice = input("choose number from menu: ") #Choose option from list above by listening to 1,2 or 3.
     if choice == "1": #If choice 1, does call function underneath
         search_line() #Calls search line function
@@ -26,6 +39,7 @@ def change_file():
     print("1. Change to tekstfil1.txt")
     print("2. Change to tekstfil2.txt")
     print("3. Change to tekstfil3.txt")
+    print("4. Input custom txt file (Requires you to add your txt file in the folder)")
     choice = input("Choose which file to change to: ") #Input is your choice
     if choice == "1": #If your choice is 1 from list, does code underneath
         current_file = "tekstfil1.txt" #Changes current_file to be the string written
@@ -35,6 +49,11 @@ def change_file():
         print_menu()
     elif choice == "3": #If your choice is 3 from list, does code underneath
         current_file = "tekstfil3.txt" #Changes current_file to be the string written
+        print_menu()
+    elif choice == "4":
+        file_input = input("Write the name of the file (Do NOT write '.txt' at the end): ")
+        current_file = file_input + ".txt"
+        print(current_file)
         print_menu()
     else:
         change_file() #If none of options above, calls change_file function again
@@ -84,4 +103,4 @@ def search_word():
 
 
 
-print_menu()
+print_menu() #Initially calls the function
