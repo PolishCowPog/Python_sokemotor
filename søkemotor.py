@@ -6,7 +6,7 @@ def print_menu():
     os.system('cls') #Clears the terminal
 
     print("")
-    current_directory = os.getcwd()
+    current_directory = os.getcwd() #Finds current path to files
     file_path = os.path.join(current_directory, current_file)
     if os.path.isfile(file_path):
         print("File found")
