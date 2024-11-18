@@ -73,7 +73,7 @@ def search_line():
     
     #Tekst file 1
     f = open(current_file, "r") #Open the current choosen file from the variable
-    search = input("search line in file: ") #Input is your search
+    search = input("search line in file (Or leave empty to get the whole file text): ") #Input is your search
 
     for line in f:
         if search in line: #Checks for search in file lines. if found does code underneath
