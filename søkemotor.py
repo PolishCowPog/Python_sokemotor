@@ -76,7 +76,7 @@ def search_line():
     search = input("search line in file (Or leave empty to get the whole file text): ") #Input is your search
 
     for line in f:
-        if search in line: #Checks for search in file lines. if found does code underneath
+        if search.lower() in line.lower(): #Checks for search in file lines. if found does code underneath
             print(line) #Prints the line with the word
     
     input("Press any key to exit: ")
