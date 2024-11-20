@@ -95,7 +95,6 @@ def search_word():
     for line in f:
         if search.lower() in line.lower(): #Checks if search is in any line in the file
             word_list.append(search) #Adds each found search into the list
-    print(word_list) #Prints list
     x = word_list.count(search) #Counts for search amount of times in list
     print("choosen word was found " + str(x) + " time(s)") #Prints amount of time search was found
     if word_list.count(search) >= 1: #If count in list equals 1 or more sets variable to true
