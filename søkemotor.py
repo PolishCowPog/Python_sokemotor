@@ -1,6 +1,7 @@
 import os #Needed to use clear terminal function
 current_file = "tekstfil1.txt" #Sets current file to read
 
+
 def print_menu():
     global current_file
     os.system('cls') #Clears the terminal
@@ -24,8 +25,17 @@ def print_menu():
     choice = input("choose number from menu: ") #Choose option from list above by listening to 1,2 or 3.
     if choice == "1": #If choice 1, does call function underneath
         search_line() #Calls search line function
+        input("press any key to exit: ")
+        print_menu()
     elif choice == "2": #If choice 2, does call function underneath
-        search_word() #Calls search word function
+        word_result = search_word()
+        print(" ")
+        print("The seached word was: " + str(word_result[0]))
+        print("Word was found = " + str(word_result[1]))
+        print("Word was found: " + str(word_result[2]) + " time(s)")
+        print(" ")
+        input("press any key to exit: ")
+        print_menu()
     elif choice == "3": #If choice 3, does call function underneath
         change_file() #Calls change filefunction
     elif choice == "4":
@@ -70,43 +80,42 @@ def change_file():
 #Search for line in file
 def search_line():
     os.system('cls') #Clears the terminal
+
     
     #Tekst file 1
     f = open(current_file, "r") #Open the current choosen file from the variable
     search = input("search line in file (Or leave empty to get the whole file text): ") #Input is your search
-
+    print(" ")
+    
     for line in f:
         if search.lower() in line.lower(): #Checks for search in file lines. if found does code underneath
             print(line) #Prints the line with the word
-    
-    input("Press any key to exit: ")
-    print_menu()
 
 
 #Search for word in file
 def search_word():
     os.system('cls') #Clears the terminal
     
-    #Tekst file 1
+    #Word search and list
     f = open(current_file, "r") #Open the current choosen file from the variable
     search = input("Search word in file: ") #Input is your search
     word_list = [] #Empty list of found searched words
 
+    #make list and count
     for line in f:
         if search.lower() in line.lower(): #Checks if search is in any line in the file
             word_list.append(search) #Adds each found search into the list
     x = word_list.count(search) #Counts for search amount of times in list
-    print("choosen word was found " + str(x) + " time(s)") #Prints amount of time search was found
+
+    #Word found
     if word_list.count(search) >= 1: #If count in list equals 1 or more sets variable to true
         word_found = True
     else: #Else false
         word_found = False
-    print("Word found = " + str(word_found)) #Prints out the variable
+
     
-    input("Press any key to exit: ")
-    print_menu()
-
-
+    f.close
+    return [search, word_found, x]
 
 
 
