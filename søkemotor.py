@@ -24,7 +24,9 @@ def print_menu():
 
     choice = input("choose number from menu: ") #Choose option from list above by listening to 1,2 or 3.
     if choice == "1": #If choice 1, does call function underneath
-        search_line() #Calls search line function
+        line_result = search_line()
+        for line in line_result:
+            print(line)
         input("press any key to exit: ")
         print_menu()
     elif choice == "2": #If choice 2, does call function underneath
@@ -81,6 +83,7 @@ def change_file():
 def search_line():
     os.system('cls') #Clears the terminal
     count = 0
+    line_list = []
 
     
     #Tekst file 1
@@ -91,9 +94,10 @@ def search_line():
     for line in f:
         count += 1
         if search.lower() in line.lower(): #Checks for search in file lines. if found does code underneath
-            print("on line: " + str(count) +": " + line) #Prints the line with the word
-    
+            line_list.append("on line: " + str(count) +": " + line.rstrip())
+
     f.close
+    return line_list
 
 
 #Search for word in file

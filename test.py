@@ -38,6 +38,8 @@ print(add(2, 3))
 
 def search_line():
     os.system('cls') #Clears the terminal
+    count = 0
+    line_list = []
 
     
     #Tekst file 1
@@ -46,8 +48,16 @@ def search_line():
     print(" ")
     
     for line in f:
+        count += 1
         if search.lower() in line.lower(): #Checks for search in file lines. if found does code underneath
-            print(line) #Prints the line with the word
+            line_list.append("on line: " + str(count) +": " + line.rstrip())
+
+    f.close
+    return line_list
+    
 
 
-search_line()
+
+line_result = search_line()
+for line in line_result:
+    print(line)
