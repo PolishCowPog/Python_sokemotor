@@ -80,6 +80,7 @@ def change_file():
 #Search for line in file
 def search_line():
     os.system('cls') #Clears the terminal
+    count = 0
 
     
     #Tekst file 1
@@ -88,8 +89,11 @@ def search_line():
     print(" ")
     
     for line in f:
+        count += 1
         if search.lower() in line.lower(): #Checks for search in file lines. if found does code underneath
-            print(line) #Prints the line with the word
+            print("on line: " + str(count) +": " + line) #Prints the line with the word
+    
+    f.close
 
 
 #Search for word in file

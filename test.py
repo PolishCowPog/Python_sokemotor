@@ -6,7 +6,7 @@ def add(a, b):
 
 print(add(2, 3))
 
-def search_word():
+'''def search_word():
     os.system('cls') #Clears the terminal
     
     #Tekst file 1
@@ -27,26 +27,27 @@ def search_word():
 
     
     f.close
-    return [search, word_found, x]
+    return [search, word_found, x]'''
 
 
 
-result = search_word()
+#result = search_word()
 #print(result)
-print("ordet ble funnet: " + str(result[2]) + " ganger")
+#print("ordet ble funnet: " + str(result[2]) + " ganger")
 
 
 def search_line():
     os.system('cls') #Clears the terminal
+
     
     #Tekst file 1
     f = open(current_file, "r") #Open the current choosen file from the variable
     search = input("search line in file (Or leave empty to get the whole file text): ") #Input is your search
-
+    print(" ")
+    
     for line in f:
         if search.lower() in line.lower(): #Checks for search in file lines. if found does code underneath
-            pass
-    return [line]
+            print(line) #Prints the line with the word
 
-line_result = search_line()
-print(line_result) #Prints the line with the word
+
+search_line()
